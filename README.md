@@ -16,21 +16,25 @@ Here is an example of a simple bot:
     
 
     func  main() {
+	//this is lsit of messages that bot will use
 	    messages  := []string{
 		    "Message",
 		    "Other message"
 	    }
-    
+	//repeat endlessly
 	    for  true {
 		    fmt.Println("Searching for partner")
+		//create chat
 		    chat, err  :=  humanornotbot.CreateChat()
 		    if  err  !=  nil {
 			    fmt.Println(err)
 			    return
 		    }
 		    fmt.Println("Chat created")
+		/check who will start
 		    if  !chat.IsMyTurn {
 			    fmt.Println("Waiting for partner to send message")
+			//wait for other side to start
 			    chat, err  =  humanornotbot.WaitMessage(chat.ChatID)
 			    if  err  !=  nil {
 				    fmt.Println(err)
@@ -41,9 +45,11 @@ Here is an example of a simple bot:
 			    }
 		    }
 		    i := 0
+		//while chat is active send messages
 		    for  chat.IsActive {
 			    message := messages[i]
 			    fmt.Println("Me: ", message)
+			//send message
 			    chat, err  =  humanornotbot.SendMessage(chat.ChatID, message)
 			    if  err  !=  nil {
 				    fmt.Println(err)
