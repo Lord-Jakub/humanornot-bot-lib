@@ -57,7 +57,7 @@ type Message struct {
 }
 
 // Function for creating chat (POST)
-func createChat() (*ChatResponse, error) {
+func CreateChat() (*ChatResponse, error) {
 	url := "https://api.humanornot.ai/human-or-not/chat/"
 
 	payload := ChatCreationPayload{
@@ -102,7 +102,7 @@ func createChat() (*ChatResponse, error) {
 }
 
 // Function for sending message (PUT)
-func sendMessage(chatID, messageText string) (*ChatResponse, error) {
+func SendMessage(chatID, messageText string) (*ChatResponse, error) {
 	url := fmt.Sprintf("https://api.humanornot.ai/human-or-not/chat/%s/send-message", chatID)
 
 	payload := SendMessagePayload{
@@ -148,7 +148,7 @@ func sendMessage(chatID, messageText string) (*ChatResponse, error) {
 }
 
 // Function for waiting for message (PUT)
-func waitMessage(chatID string) (*ChatResponse, error) {
+func WaitMessage(chatID string) (*ChatResponse, error) {
 	url := fmt.Sprintf("https://api.humanornot.ai/human-or-not/chat/%s/wait-message", chatID)
 
 	payload := WaitMessagePayload{
@@ -192,7 +192,7 @@ func waitMessage(chatID string) (*ChatResponse, error) {
 }
 
 // Sending guess
-func guessChat(chatID, partner_type string) (*ChatResponse, error) {
+func GuessChat(chatID, partner_type string) (*ChatResponse, error) {
 	url := fmt.Sprintf("https://api.humanornot.ai/human-or-not/chat/%s/guess", chatID)
 
 	payload := GuessPayload{
