@@ -196,7 +196,7 @@ func GuessChat(chatID, partner_type string) (*ChatResponse, error) {
 	url := fmt.Sprintf("https://api.humanornot.ai/human-or-not/chat/%s/guess", chatID)
 
 	payload := GuessPayload{
-		UserID:      "09fdf193-5433-48f7-a274-2baef8a33b38",
+		UserID:      "58278235-eb96-401e-bce9-7d63fc159635",
 		PartnerType: partner_type,
 	}
 
