@@ -2,6 +2,8 @@
 ***Made by Lord_Jakub***
 Hi, this is a library I made to make bots for humanornot.ai easier and I decided to post it because why not. 
 
+Get this library by using `go get github.com/Lord-Jakub/humanornot-bot-lib`
+
 Here is an example of a simple bot:
 
 ```go
