@@ -29,6 +29,9 @@ type GuessPayload struct {
 	PartnerType string `json:"partner_type"`
 }
 
+// UserID
+var UserID = "58278235-eb96-401e-bce9-7d63fc159635"
+
 // Structure for response
 // Important are mostly ChatID and array of messages
 type ChatResponse struct {
@@ -61,7 +64,7 @@ func CreateChat() (*ChatResponse, error) {
 	url := "https://api.humanornot.ai/human-or-not/chat/"
 
 	payload := ChatCreationPayload{
-		UserID: "58278235-eb96-401e-bce9-7d63fc159635",
+		UserID: UserID,
 		Origin: "honLandPage",
 	}
 
@@ -106,7 +109,7 @@ func SendMessage(chatID, messageText string) (*ChatResponse, error) {
 	url := fmt.Sprintf("https://api.humanornot.ai/human-or-not/chat/%s/send-message", chatID)
 
 	payload := SendMessagePayload{
-		UserID: "58278235-eb96-401e-bce9-7d63fc159635",
+		UserID: UserID,
 		Text:   messageText,
 	}
 
@@ -152,7 +155,7 @@ func WaitMessage(chatID string) (*ChatResponse, error) {
 	url := fmt.Sprintf("https://api.humanornot.ai/human-or-not/chat/%s/wait-message", chatID)
 
 	payload := WaitMessagePayload{
-		UserID: "58278235-eb96-401e-bce9-7d63fc159635",
+		UserID: UserID,
 	}
 
 	payloadBytes, err := json.Marshal(payload)
@@ -196,7 +199,7 @@ func GuessChat(chatID, partner_type string) (*ChatResponse, error) {
 	url := fmt.Sprintf("https://api.humanornot.ai/human-or-not/chat/%s/guess", chatID)
 
 	payload := GuessPayload{
-		UserID:      "58278235-eb96-401e-bce9-7d63fc159635",
+		UserID:      UserID,
 		PartnerType: partner_type,
 	}
 
